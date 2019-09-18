@@ -15,7 +15,8 @@ RUN apt-get update && apt-get install -y \
 		iproute2 \
 		libicu-dev \
 	&& pecl install imagick \
-	&& docker-php-ext-enable imagick \
+	&& pecl install redis \
+	&& docker-php-ext-enable imagick redis \
 	&& docker-php-ext-install soap intl \
 	&& echo "mailhub=mailcatcher:1025\nUseTLS=NO\nFromLineOverride=YES" > /etc/ssmtp/ssmtp.conf \
 	&& apt-get remove -y libmagickwand-dev libxml2-dev libicu-dev \
